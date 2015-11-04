@@ -1,0 +1,411 @@
+<!-- *********************************************************************************************************
+ 
+ Copyright (C) Appmobi
+ Info: This document utilizes all the events for registering Appmobi events. Developers may change implementation of events.
+ Must include for adding Listners to Appmobi events
+ You can find the complete documentation here https://docs.appmobi.com/
+ 
+ ************************************************************************************************************ -->
+
+<!DOCTYPE html>
+<!--HTML5 doctype-->
+<html ng-app="starter" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Appmobi</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+            <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+            <script type="text/javascript" charset="utf-8" src="appMobi.js"></script>
+            <script src="angular.min.js"></script>
+            <script type="text/javascript" src="ng-cordova-oauth.js"></script>
+            <script src="app.js"></script>
+            <style>
+                body {
+                    -webkit-touch-callout: none; /* prevent callout to copy image, etc when tap to hold */
+                    -webkit-text-size-adjust: none; /* prevent webkit from resizing text to fit */
+                    -webkit-user-select: none; /* prevent copy paste, to allow, change 'none' to 'text' */
+                    background-color: #E4E4E4;
+                    background-image: linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+                    background-image: -webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+                    background-image: -ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+                    background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0, #A7A7A7), color-stop(0.51, #E4E4E4) );
+                    background-attachment: fixed;
+                    font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+                    font-size: 12px;
+                    height: 100%;
+                    margin: 0px;
+                    padding: 0px;
+                    text-transform: uppercase;
+                    width: 100%;
+                }
+            
+            .background {
+                background-color: #cccccc;
+                background: url("logo.png") no-repeat center top;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                height: 50px;
+                width: 225px;
+                text-align: center;
+                padding: 50px 0px 0px 0px;
+                margin: -230px 0px 0px -112px;
+            }
+            
+            .black_overlay {
+                display: none;
+                position: absolute;
+                top: 0%;
+                left: 0%;
+                width: 100%;
+                height: 100%;
+                background-color: black;
+                z-index: 1001;
+                -moz-opacity: 0.8;
+                opacity: .80;
+                filter: alpha(opacity=80);
+            }
+            
+            .white_content {
+                display: none;
+                position: absolute;
+                top: 5%;
+                left: -5%;
+                width: 100%;
+                height: 70%;
+                padding: 16px;
+                background-color: #FAFAFA;
+                z-index: 1002;
+                overflow: auto;
+                border-radius: 25px;
+            }
+            .button{
+                height:30px;
+                width:155px;
+            }
+            </style>
+            <script>
+                
+                function onDeviceReady() {
+                    /*************** Appmobi Plugin initialuzation ****************/
+                    // Initialize the Appmobi plugin.
+                    pushMobi.initializePlugin();
+                }
+            
+            /*************** OAuth ***************/
+            function onUserInputEvent(data) {
+                document.getElementById('light1').style.display = 'none';
+                document.getElementById('fade').style.display = 'none';
+                document.getElementById('light').style.display = 'none';
+                if (data.success == false) {
+                    if(data.oauth == true){
+                        document.getElementById("facebookBtn").style.display = "none";
+                        document.getElementById("googleBtn").style.display = "none";
+                        document.getElementById("linkedInBtn").style.display = "none";
+                        var myOAuthData = AppMobiCloud.oauth.getOAuthDataList();
+                        var len=myOAuthData.length;
+                        if(len > 0) {
+                            for(i=0; i < len; i++) {
+                                var obj = myOAuthData[i];
+                                try{
+                                    switch (myOAuthData[i].provider) {
+                                        case 'facebook':
+                                        document.getElementById("facebookBtn").style.display = "block";
+                                        break;
+                                        case 'google':
+                                        document.getElementById("googleBtn").style.display = "block";
+                                        break;
+                                        default:
+                                        break;
+                                    }
+                                    document.getElementById('light1').style.display = 'block';
+                                    document.getElementById('fade').style.display = 'block';
+                                }catch(e){
+                                    AppMobiCloud.notification.alert("Caught Exception For: " + e.message);
+                                }
+                            }
+                        }
+                        else{
+                            alert("No OAuth providers available");
+                            var launchImageID = document.getElementById("launchImage");
+                            launchImageID.style.display = 'none';
+                        }
+                    }
+                    else{
+                        document.getElementById('light').style.display = 'block';
+                        document.getElementById('fade').style.display = 'block';
+                    }
+                } else {
+                    AppMobiCloud.notification.alert("success with message : " + data.message + ", with userID : " + data.userID);
+                }
+                
+            }
+            
+            /*************** Validate LDAP Useranme and password.***************/
+            function InputPushUser() {
+                if (document.getElementById("inputPushUser").value == "" || document.getElementById("inputPushPassword").value == "")
+                alert('Please enter username and password for checking existing user');
+                else {
+                    pushMobi.authorizeUser(document.getElementById("inputPushUser").value, document.getElementById("inputPushPassword").value);
+                    document.getElementById('light').style.display = 'none'; document.getElementById('fade').style.display = 'none';
+                }
+            }
+            
+            function onUserInactive(data)
+            {
+                
+                if (data.success == true) {
+                    var launchImageID = document.getElementById("launchImage");
+                    launchImageID.style.display = 'none';
+                    document.getElementById('inactiveerrormsg').innerHTML = data.message;
+                    document.getElementById('ErrorAlert').style.display = 'block'; document.getElementById('fade').style.display = 'block';
+                }
+                else {
+                    document.getElementById('inactiveerrormsg').innerHTML = null;
+                    document.getElementById('ErrorAlert').style.display = 'none';
+                    document.getElementById('fade').style.display = 'none';
+                    document.getElementById('light1').style.display = 'none';
+                    document.getElementById('light').style.display = 'none';
+                }
+            }
+            
+            /***************** Add the Appmobi eventListeners. ******************/
+            
+            document.addEventListener("appMobi.app.inactive", onUserInactive, false);
+            document.addEventListener("appMobi.user.input", onUserInputEvent, false);
+            document.addEventListener('deviceready', onDeviceReady, false);
+            document.addEventListener("appMobi.securedata.sync", onSecureDataSync, false);
+            document.addEventListener("appMobi.securedata.save", onSecureDataSave, false);
+            document.addEventListener("appMobi.securedata.read", onSecureDataRead, false);
+            
+         
+         /*************** Appmobi Push Message Javascript API and Example ****************/
+            
+            /*****************************************************************************
+             ### checkPushUser
+             Use this method to confirm the credentials of a user or to log an existing user in on a different device.
+             ******************************************************************************/
+            function checkPushUser(){
+                var user = prompt("Please enter username", "testUser");
+                var pwd = prompt("Please enter password", "password");
+                pushMobi.checkPushUser(user,pwd);
+            }
+            
+            /*******************************************************************************
+             ### addPushUser
+             Use this method to register a new user id on a particular Appmobi application
+             ******************************************************************************/
+             function addPushUser(){
+                var user = prompt("Please enter username", "testUser");
+                var pwd = prompt("Please enter password", "password");
+                var email = prompt("Please enter email", "demo@appmobi.com");
+                pushMobi.addPushUser(user,pwd,email);
+            }
+            
+            /*******************************************************************************
+             ### sendPushNotification
+             Use this method to send a push notification to another user of an application
+             *******************************************************************************/
+             function sendPushNotification(){
+                var user = prompt("Please enter username", "testUser");
+                var pwd = prompt("Please enter password", "password");
+                var email = prompt("Please enter email", "demo@appmobi.com");
+                pushMobi.sendPushNotification('prabhjot!','message','data');
+            }
+            
+            /******************************************************************************
+             ### editPushUser
+             Use this method to change the email address and the password associated with the
+             push notification service of an Appmobi application.
+             ******************************************************************************/
+             function editPushUser(){
+                var email = prompt("Please enter email", "demo@appmobi.com");
+                var pwd = prompt("Please enter password", "password");
+                pushMobi.editPushUser(email,pwd);
+            }
+            
+            /******************************************************************************
+             ### findPushUserByUsername
+             Use this method to allow users to find other users of an Appmobi application.
+             It provides a kind of “friends” functionality.
+             ******************************************************************************/
+             function findPushUserByUsername(){
+                var user = prompt("Please enter username", "testUser");
+                pushMobi.findPushUserByUsername(user);
+            }
+            
+            /******************************************************************************
+             ### findPushUserByEmail
+             Use this method to allow users to find other users of an Appmobi application.
+             It provides a kind of “friends” functionality.
+             ******************************************************************************/
+             function findPushUserByEmail(){
+                var email = prompt("Please enter email", "demo@appmobi.com");
+                pushMobi.findPushUserByEmail(email);
+            }
+            /******************************************************************************
+             ### setPushUserAttributes
+             Use this method to associate attributes to a user.
+             ******************************************************************************/
+             function setPushUserAttributes(){
+                var attributes = new AppMobiCloud.Notification.PushUserAttributes();
+                var s1 = prompt("Please enter s1 attribute value", "male");
+                var s2 = prompt("Please enter s2 attribute value", "city");
+                var n1 = prompt("Please enter n1 attribute value", 1952);
+                if(s1)
+                attributes.s1 = s1;         // gender
+                if(s2)
+                attributes.s2 = s2;     // city
+                if(n1)
+                attributes.n1 = n1;            // birth year
+                pushMobi.setPushUserAttributes(attributes);
+            }
+            
+            /******************************* Appmobi Secure Data Store *******************************
+             
+             Example for the Save/Read data securely.
+             You can find detail documentation and example here:
+             https://docs.appmobi.com/securedatastore/javascriptapi/saveData.html#pmjsmsavedata
+             
+             *************************************************************************************/
+            
+            /**************************************************************************************
+             ### saveData(key, value,isMasterData, saveToServer)
+             
+             Use this method to store data securely on the device and/or server.
+             To use this functionality, user needs to enable app data security in your
+             application security settings on the enterprise management portal.
+             ***************************************************************************************/
+            
+            function saveSecureData(){
+                var key = prompt("Please enter Key", "BP");
+                var value = prompt("Please enter value", "170");
+                var isMasterData = prompt("Master Data Required: \n\n 0 for No, \n 1 for Yes", "0");
+                var saveToServer = prompt("Please enter saveToServer \n\n 0 for No, \n 1 for Yes", "0");
+                AppMobiCloud.secureData.saveData(key, value,isMasterData, saveToServer);
+            }
+            
+            /************************************************************************************
+             ### AppMobiCloud.secureData.readData()
+             
+             Use this method to read stored data from device.
+             ************************************************************************************/
+            function readSecureData(){
+                var key = prompt("Please enter Key", "BP");
+                var isMasterData = prompt("Master Data sync Required: \n\n 0 for No, \n 1 for Yes", "0");
+                
+                AppMobiCloud.secureData.readData(key,isMasterData);
+            }
+            
+            function onSecureDataSave(data){
+                alert(data.message);
+            }
+            
+            /*************************************************
+             ### AppMobiCloud.secureData.getSecureDataList()
+             
+             Get secure data list
+             *************************************************/
+             function onSecureDataRead(data){
+                if(data.success){
+                    var mySecureList = AppMobiCloud.secureData.getSecureDataList();
+                    var len=mySecureList.length;
+                    if(len > 0) {
+                        for(i=0; i < len; i++) {
+                            var obj=AppMobiCloud.secureData.getSecureData(mySecureList[i]);
+                            try{
+                                if(typeof obj == "object" && obj.id == mySecureList[i]){
+                                    AppMobiCloud.notification.alert(obj.key +" : "+ obj.value,"SecureData","OK");
+                                }
+                            }catch(e){
+                                AppMobiCloud.notification.alert("Caught Exception For: " + e.message);
+                            }
+                        }
+                    }
+                    else
+                    AppMobiCloud.notification.alert("No data available with specified key","SecureData","OK");
+                }
+                else
+                alert(data.message);
+            }
+
+            /************************************************************************************
+            ### AppMobiCloud.secureData.syncData()
+ 
+            This method transfer all the local data from device which is not sync to server
+            ************************************************************************************/
+            
+            function syncSecureData(){
+                AppMobiCloud.secureData.syncData();
+            }
+            
+            function onSecureDataSync(data){
+                alert(data.message);
+            }
+            
+                </script>
+    </head>
+    <body ng-controller="MyCtrl">
+        <div id="launchImage" style="z-index:999; position:absolute; width:100%; height:100%; text-align:center">
+            <span class="Centerer" style="display: inline-block;height: 100%;vertical-align: middle;"></span>
+            <img src="ajax-loader.gif" style="vertical-align: middle;display: inline-block; "/>
+        </div>
+        <div class="background">
+            
+            <!-- *******************************************************************
+             Call Appmobi push messaging and secure data store api.
+             ******************************************************************** -->
+            
+            <!--pushMobi.checkPushUser To Add/Check Push User for Appmobi Push Service. -->
+            <p><button class = "button" onclick="checkPushUser()">Check Push User 2.1</button></p>
+            <p><button class = "button" onclick="addPushUser()">add Push User</button></p>
+            <p><button class = "button" onclick="pushMobi.deletePushUser();">delete Push device</button></p>
+            <p><button class = "button" onclick="sendPushNotification()">send Push Notification</button></p>
+            <p><button class = "button"  onclick="pushMobi.refreshPushNotifications();">refreshPushNotifications</button></p>
+            <p><button class = "button" onclick="editPushUser()">editPushUser</button></p>
+            <p><button class = "button" onclick="findPushUserByUsername()">findPushUserByUsername</button></p>
+            <p><button class = "button" onclick="findPushUserByEmail()">findPushUserByEmail</button></p>
+            <p><button class = "button" onclick="pushMobi.sendPushUserPass();">sendPushUserPass</button></p>
+            <p><button class = "button" onclick="setPushUserAttributes();">set push Attributes</button></p>
+            <p><button class = "button" onclick="saveSecureData();">save secure Data</button></p>
+            <p><button class = "button" onclick="syncSecureData();">sync secure Data</button></p>
+            <p><button class = "button" onclick="readSecureData();">read secure Data</button></p>
+            
+            <!-- ***************************************************************************************
+             This div will be display if you have selected Level 3 Security and Auth Type is set to LDAP
+             ******************************************************************************************* -->
+            <div id="light" class="white_content">
+                <div style="text-align:center">
+                    Enter UserName:
+                    <input type="text" value="username" id="inputPushUser" />
+                    <br />
+                    <br />
+                    Enter Password:
+                    <input type="password" value="yourpassword" id="inputPushPassword" />
+                    <br />
+                    <br />
+                    <button type="button" style="text-align:right" onclick="InputPushUser()">Submit</button>
+                    <br>
+                </div>
+            </div>
+            <div id="fade" class="black_overlay"></div>
+           
+           <!-- ****************************************************************************************
+            This div will be display if you have selected Level 3 Security and Auth Type is set to OAuth
+            ******************************************************************************************** -->
+            <div id="light1" class="white_content">
+                <div style="text-align:center;margin-left:50px">
+                    <input id="facebookBtn" type="button" value="FacebookLogin" ng-click="facebookLogin()"/>
+                    <br />
+                    <input id="googleBtn" type="button" value="GoogleLogin" ng-click="googleLogin()"/>
+                    <br />
+                </div>
+            </div>
+        </div>
+        <div id="fade" class="black_overlay"></div>
+        <div id="ErrorAlert" class="white_content">
+            <div>
+                <p id="inactiveerrormsg" style="text-align:center"></p>                
+            </div>
+        </div>	
+    </body>
+</html>

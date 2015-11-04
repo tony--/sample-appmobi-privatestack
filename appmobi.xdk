@@ -1,0 +1,341 @@
+{
+    "project": {
+        "projectSettingsVersion": "2.0.0",
+        "creationData": {
+            "projectTypeName": "com.intel.xdk.projecttype.jsapp",
+            "src": "jsapp/sample-appmobi-privatestack/sample.zip",
+            "projectGuid": "00000000-0000-0000-0000-000000000000",
+            "lastModifiedDate": 1446665344615,
+            "creationDate": 1446665326174
+        },
+        "sourceDirectory": "www",
+        "cordovaPluginsDirectory": "plugins",
+        "startFile": "index.html",
+        "projectFiles": {},
+        "projectDirectories": {},
+        "libraries": [],
+        "cordovaPlugins": [
+            {
+                "id": "cordova-plugin-statusbar",
+                "name": "StatusBar",
+                "version": "?",
+                "originType": "cordova.io",
+                "origin": "cordova-plugin-statusbar",
+                "gitref": "",
+                "paramvals": {},
+                "selectedState": "Included",
+                "dependsOn": [],
+                "topLevel": true,
+                "cordovaVersion": "?",
+                "permissions": {},
+                "description": "Cordova StatusBar Plugin",
+                "data": {},
+                "dependedBy": []
+             },
+            {
+                "id": "cordova-plugin-splashscreen",
+                "version": "?",
+                "selectedState": "Included",
+                "data": {},
+                "paramvals": {},
+                "dependsOn": [],
+                "dependedBy": [],
+                "originType": "cordova.io",
+                "origin": "cordova-plugin-splashscreen",
+                "permissions": {},
+                "topLevel": true,
+                "gitref": "",
+                "name": "Splashscreen",
+                "cordovaVersion": "?",
+                "description": "Cordova Splashscreen Plugin"
+            },
+            {
+                "id": "cordova-plugin-device",
+                "version": "?",
+                "selectedState": "Included",
+                "data": {},
+                "paramvals": {},
+                "dependsOn": [],
+                "dependedBy": [],
+                "originType": "cordova.io",
+                "origin": "cordova-plugin-device",
+                "permissions": {},
+                "topLevel": true,
+                "gitref": "",
+                "name": "Device",
+                "cordovaVersion": "?",
+                "description": "Cordova Device Plugin"
+            },
+            {
+                "id": "cordova-plugin-appmobi",
+                "version": "?",
+                "selectedState": "Included",
+                "data": {},
+                "paramvals": {},
+                "dependsOn": [],
+                "dependedBy": [],
+                "custom": "true",
+                "name": "Appmobi",
+                "origin": "https://github.com/appMobiGithub/cordova-plugin-appmobi.git",
+                "originType": "repo",
+                "permissions": {},
+                "gitref": "",
+                "subdir": ".",
+                "topLevel": true,
+                "cordovaVersion": "?",
+                "description": "Cordova plugin for Appmobi",
+                "author": "Appmobi"
+            }
+        ],
+        "serviceMethods": [],
+        "buildConfigurations": {
+            "Android-Crosswalk": {
+                "platform_": "android",
+                "runtime_": "Crosswalk with Cordova 3.x",
+                "name_": "Android-Crosswalk",
+                "preferences_": {
+                    "android-minSdkVersion": "14",
+                    "android-targetSdkVersion": "19",
+                    "android-installLocation": "auto"
+                },
+                "isActive_": true,
+                "appName_": "Appmobi-PrivateStack",
+                "appID_": "com.intel.appmobiprivatestack",
+                "appAccess_": {
+                    "mode": "legacy",
+                    "network": [
+                        "http://debug-software.intel.com/*", 
+                        "https://debug-software.intel.com/*"
+                    ],
+                    "intents": [],
+                    "navigation": []
+                },
+                "icons_": [],
+                "splashes_": [],
+                "addlPermissions_": "",
+                "excludedLibraries_": "",
+                "cordovaCLIVersion_": "?",
+                "crosswalkVersion_": "?",
+                "appVersion_": "1.0.0",
+                "appVersionCode_": "1",
+                "appAuthor_": "Intel XDK",
+                "appDescription_": "A simple structure app with example hooks for using the Appmobi secure development platform"
+            },
+            "Android": {
+                "platform_": "android",
+                "runtime_": "Cordova 3.x",
+                "name_": "Android",
+                "preferences_": {
+                    "android-minSdkVersion": "14",
+                    "android-targetSdkVersion": "19",
+                    "android-installLocation": "auto"
+                },
+                "isActive_": true,
+                "appName_": "Appmobi-PrivateStack",
+                "appID_": "com.intel.appmobiprivatestack",
+                "appAccess_": {
+                    "mode": "legacy",
+                    "network": [
+                        "http://debug-software.intel.com/*", 
+                        "https://debug-software.intel.com/*"
+                    ],
+                    "intents": [],
+                    "navigation": []
+                },
+                "icons_": [],
+                "splashes_": [],
+                "addlPermissions_": "",
+                "excludedLibraries_": "",
+                "cordovaCLIVersion_": "?",
+                "crosswalkVersion_": "?",
+                "appVersion_": "1.0.0",
+                "appVersionCode_": "1",
+                "appDescription_": "A simple structure app with example hooks for using the Appmobi secure development platform",
+                "appAuthor_": "Intel XDK"
+            },
+            "iOS": {
+                "platform_": "ios",
+                "runtime_": "Cordova 3.x",
+                "name_": "iOS",
+                "preferences_": {
+                    "ios-target": "6",
+                    "ios-configuration": "adhoc"
+                },
+                "isActive_": true,
+                "appName_": "Appmobi-PrivateStack",
+                "appID_": "com.intel.appmobiprivatestack",
+                "appAccess_": {
+                    "mode": "legacy",
+                    "network": [
+                        "http://debug-software.intel.com/*", 
+                        "https://debug-software.intel.com/*"
+                    ],
+                    "intents": [],
+                    "navigation": []
+                },
+                "icons_": [],
+                "splashes_": [],
+                "addlPermissions_": "",
+                "excludedLibraries_": "",
+                "iosProvs_": [],
+                "cordovaCLIVersion_": "?",
+                "crosswalkVersion_": "?",
+                "appVersion_": "1.0.0",
+                "appAuthor_": "Intel XDK",
+                "appDescription_": "A simple structure app with example hooks for using the Appmobi secure development platform"
+            },
+            "Windows8": {
+                "platform_": "windows8",
+                "runtime_": "Cordova 3.x",
+                "name_": "Windows8",
+                "preferences_": {},
+                "isActive_": true,
+                "appName_": "Appmobi-PrivateStack",
+                "appID_": "com.intel.appmobiprivatestack",
+                "appAccess_": {
+                    "mode": "legacy",
+                    "network": [
+                        "http://debug-software.intel.com/*", 
+                        "https://debug-software.intel.com/*"
+                    ],
+                    "intents": [],
+                    "navigation": []
+                },
+                "icons_": [],
+                "splashes_": [],
+                "addlPermissions_": "",
+                "excludedLibraries_": "",
+                "cordovaCLIVersion_": "?",
+                "crosswalkVersion_": "?",
+                "appVersion_": "1.0.0.0",
+                "appAuthor_": "Intel XDK",
+                "appDescription_": "A simple structure app with example hooks for using the Appmobi secure development platform"
+            },
+            "WebApp": {
+                "platform_": "webapp",
+                "runtime_": "W3C",
+                "name_": "WebApp",
+                "preferences_": {},
+                "isActive_": false,
+                "appName_": "Appmobi-PrivateStack",
+                "appID_": "not.yet.specified",
+                "appAccess_": {
+                    "mode": "legacy",
+                    "network": [
+                        "http://debug-software.intel.com/*", 
+                        "https://debug-software.intel.com/*"
+                    ],
+                    "intents": [],
+                    "navigation": []
+                },
+                "icons_": [],
+                "splashes_": [],
+                "addlPermissions_": "",
+                "excludedLibraries_": "",
+                "appAuthor_": "Intel XDK",
+                "appVersion_": "0.0.1"
+            },
+            "Firefox": {
+                "platform_": "firefoxos",
+                "runtime_": "W3C on Firefox OS",
+                "name_": "Firefox",
+                "preferences_": {},
+                "isActive_": false,
+                "appName_": "Appmobi-PrivateStack",
+                "appID_": "not.yet.specified",
+                "appAccess_": {
+                    "mode": "legacy",
+                    "network": [
+                        "http://debug-software.intel.com/*", 
+                        "https://debug-software.intel.com/*"
+                    ],
+                    "intents": [],
+                    "navigation": []
+                },
+                "icons_": [],
+                "splashes_": [],
+                "addlPermissions_": "",
+                "excludedLibraries_": "",
+                "appAuthor_": "Intel XDK",
+                "appVersion_": "0.0.1"
+            },
+            "Chrome": {
+                "platform_": "chromeos",
+                "runtime_": "W3C on Chrome OS",
+                "name_": "Chrome",
+                "preferences_": {},
+                "isActive_": false,
+                "appName_": "Appmobi-PrivateStack",
+                "appID_": "not.yet.specified",
+                "appAccess_": {
+                    "mode": "legacy",
+                    "network": [
+                        "http://debug-software.intel.com/*", 
+                        "https://debug-software.intel.com/*"
+                    ],
+                    "intents": [],
+                    "navigation": []
+                },
+                "icons_": [],
+                "splashes_": [],
+                "addlPermissions_": "",
+                "excludedLibraries_": "",
+                "appAuthor_": "Intel XDK",
+                "appVersion_": "0.0.1"
+            },
+            "Facebook": {
+                "platform_": "facebook",
+                "runtime_": "W3C on Facebook",
+                "name_": "Facebook",
+                "preferences_": {},
+                "isActive_": false,
+                "appName_": "Appmobi-PrivateStack",
+                "appID_": "not.yet.specified",
+                "appAccess_": {
+                    "mode": "legacy",
+                    "network": [
+                        "http://debug-software.intel.com/*", 
+                        "https://debug-software.intel.com/*"
+                    ],
+                    "intents": [],
+                    "navigation": []
+                },
+                "icons_": [],
+                "splashes_": [],
+                "addlPermissions_": "",
+                "excludedLibraries_": "",
+                "appAuthor_": "Intel XDK",
+                "appVersion_": "0.0.1"
+            },
+            "WP81": {
+                "platform_": "wp81",
+                "runtime_": "Cordova 3.x",
+                "name_": "WP81",
+                "preferences_": {},
+                "isActive_": true,
+                "appName_": "Appmobi-PrivateStack",
+                "appID_": "not.yet.specified",
+                "appAccess_": {
+                    "mode": "legacy",
+                    "network": [
+                        "http://debug-software.intel.com/*", 
+                        "https://debug-software.intel.com/*"
+                    ],
+                    "intents": [],
+                    "navigation": []
+                },
+                "icons_": [],
+                "splashes_": [],
+                "addlPermissions_": "",
+                "excludedLibraries_": "",
+                "appVersion_": "0.0.0.1",
+                "cordovaCLIVersion_": "?",
+                "appAuthor_": "Intel XDK"
+            }
+        },
+        "gameAssetDirectory": "asset",
+        "gameMetadata": {},
+        "projectTags": [],
+        "testDirectory": "test"
+    }
+}

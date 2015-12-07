@@ -4,6 +4,10 @@ Appmobi Secure Mobile Platform provides a level of security never seen in a mobi
 
 Quickly and easily build the most secure apps on the market today, in minutes.
 
+**Requirements**
+--------
+In order to utilize the Appmobi platform you must have a registered Appmobi PrivateStack platform.  If you do not have an account or Appmobi PrivateStack server you can [Register for a Demo](https://licensing.appmobi.com/demo/signup/) on our website.
+
 **Features**
 --------
 **Security Kit**
@@ -59,6 +63,14 @@ New to mobile development and looking for a place to start? Our Quickstart guide
  - [Google OAuth Integration](https://docs.appmobi.com/guides/quickstart-oauth/index.html#google-oauth-integration) 
  - [Facebook OAuth Integration](https://docs.appmobi.com/guides/quickstart-oauth/index.html#facebook-oauth-integration)
 
+**Plugin Variables**
+----------
+Our plugin makes use of Cordova plugin variables to communicate with the PrivateStack backend.  When installing the plugin you will need to provide 3 parameters:
+
+- APP_NAME: The name of the application created on your Enterprise Management Portal in PrivateStack.
+- APP_SECRET: The unique application indentifier of your Appmobi PrivateStack application.
+- CONFIG_URL: The HTTP endpoint of your PrivateStack (ie. https://127.0.0.1/ )
+
 **References**
 ----------
  -  [Appmobi Official Website](https://www.appmobi.com/)
@@ -69,4 +81,8 @@ New to mobile development and looking for a place to start? Our Quickstart guide
 ----------
 Platforms : 
 - Android
-- iOS (For Intel XDK, plugin will not work for iOS as it has dependency on cordova v4.0.0 which has not been released yet.)
+- iOS (For Intel XDK the plugin will not work for iOS as it has dependency on cordova v4.0.0 which has not been released yet.)
+
+**Sample Application**
+----------
+Check out our [Appmobi Sample Cordova Application Tempalte](https://github.com/appMobiGithub/sample-appmobi-privatestack) for a quickstart on getting to know the funtionality of the Appmobi platform.  We provide working examples of using many of the different features Appmobi provides which you can either use as a learning tool or a fresh application base.

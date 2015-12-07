@@ -82,7 +82,3 @@ Our plugin makes use of Cordova plugin variables to communicate with the Private
 Platforms : 
 - Android
 - iOS (For Intel XDK the plugin will not work for iOS as it has dependency on cordova v4.0.0 which has not been released yet.)
-
-**Sample Application**
-----------
-Check out our [Appmobi Sample Cordova Application Tempalte](https://github.com/appMobiGithub/sample-appmobi-privatestack) for a quickstart on getting to know the funtionality of the Appmobi platform.  We provide working examples of using many of the different features Appmobi provides which you can either use as a learning tool or a fresh application base.

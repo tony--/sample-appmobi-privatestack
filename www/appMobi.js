@@ -20,8 +20,7 @@ var pushMobi = function () {
 		Initialize plugin after device ready
 		************************************/
         initializePlugin: function () {
-            cordova.require("com.appMobiCloud.AppMobiCloud");
-              var launchImageID = document.getElementById('launchImage');
+            var launchImageID = document.getElementById('launchImage');
             launchImageID.style.display = 'block';
             AppMobiCloud.plugin.initialize(function (data) {//success callback
                         alert("AppMobi library initialized successfully");

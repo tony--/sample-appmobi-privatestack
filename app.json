@@ -1,6 +1,6 @@
 {
    "repoName" : "sample-appmobi-privatestack",
-   "description" : "A simple structure app with example hooks for using the Appmobi secure development platform.  A PrivateStack is necessary and a demo can be signed up for at https://licensing.appmobi.com/demo/signup/",
+   "description" : "A simple structure app with example hooks for using the Appmobi secure development platform.  A PrivateStack platform is necessary, <a class='externalLink' href='https://licensing.appmobi.com/demo/signup/'>signup for a free demo license</a>",
    "appPreview" : false,
    "projectTypeName" : "com.intel.xdk.projecttype.jsapp",
    "relName" : "4.0.0",

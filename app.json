@@ -1,27 +1,29 @@
 {
-   "repoName" : "sample-appmobi-privatestack",
-   "description" : "A simple structure app with example hooks for using the Appmobi secure development platform.  A PrivateStack platform is necessary, <a class='externalLink' href='https://licensing.appmobi.com/demo/signup/'>signup for a free demo license</a>",
-   "appPreview" : false,
-   "projectTypeName" : "com.intel.xdk.projecttype.jsapp",
-   "relName" : "4.0.0",
-   "articleUrl" : null,
-   "highlights" : [
-      "Apache Cordova API",
-      "Security",
-      "Push Messaging",
-      "Live Update"
-   ],
-   "mobile" : false,
-   "keywords" : [
-      "Apache Cordova API",
-      "Security",
-      "Push Messaging",
-      "Live Update"
-   ],
-   "iconUrl" : "https://github.com/appMobiGithub/sample-appmobi-privatestack/blob/master/icon.png",
-   "screenshotUrl" : "https://github.com/appMobiGithub/sample-appmobi-privatestack/blob/master/screenshot.png",
-   "title" : "Appmobi PrivateStack",
-   "tooltip" : "A simple structure app with example hooks for using the Appmobi secure development platform",
-   "visible" : true,
-   "appName" : "demo.appmobiprivatestack"
+	"title": "Appmobi Sample Template",
+	"abbr": "Appmobi Sample Template",
+	"tooltip": "A simple structure app with example hooks for using the Appmobi secure development platform.",
+	"description" : "A simple structure app with example hooks for using the Appmobi secure development platform. Using this sample requires a free Appmobi license.  <a class='externalLink' href='https://licensing.appmobi.com/demo/signup/'>Signup now for a free demo license</a>",
+	"repoName" : "sample-appmobi-privatestack",
+	"articleUrl" :  "https://github.com/appMobiGithub/sample-appmobi-privatestack/blob/master/README.md",
+	"section" : "samples",
+	"group" : "",
+	"visible" : true,
+	"version":"1.0.0",
+	"samples": true,
+	"keywords": [
+		"Apache Cordova API",
+		"Security",
+		"Push Messaging",
+		"Live Update"
+	],
+	"highlights": [
+		"Apache Cordova API",
+		"Security",
+		"Push Messaging",
+		"Live Update"
+	],
+	"projectTypeName": "com.intel.xdk.projecttype.jsapp",
+	"appName": "demo.appMobi",
+	"appPreview": false,
+	"mobile": false
 }

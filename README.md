@@ -71,6 +71,10 @@ Our plugin makes use of Cordova plugin variables to communicate with the Private
 - APP_SECRET: The unique application indentifier of your Appmobi PrivateStack application.
 - CONFIG_URL: The HTTP endpoint of your PrivateStack (ie. https://127.0.0.1/ )
 
+When the user creates a new app based on the sample in Intel XDK, The Appmobi plugin will be added using the default parameter values. The user needs to change default placeholder values with the above 3 parameters for initialization of Plugin.
+
+Note: The above parameters should be correct as provided from private stack App. Any inaccuracy in parameters may results in Plugin initialization failure.
+
 **References**
 ----------
  -  [Appmobi Official Website](https://www.appmobi.com/)

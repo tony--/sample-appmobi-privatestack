@@ -2,7 +2,7 @@
 	"title": "Appmobi Sample Template",
 	"abbr": "Appmobi Sample Template",
 	"tooltip": "A simple structure app with example hooks for using the Appmobi secure development platform.",
-	"description" : "[Android only - see README for details].  A simple structure app with example hooks for using the Appmobi secure development platform. Using this sample requires a free Appmobi license.  <a class='externalLink' href='https://licensing.appmobi.com/demo/signup/'>Signup now for a free demo license</a>",
+	"description" : "<a class='externalLink' href='https://github.com/appMobiGithub/sample-appmobi-privatestack/blob/master/README.md'>[Android only - see README for details]</a>.  A simple structure app with example hooks for using the Appmobi secure development platform.  Using this sample requires a free Appmobi license.  <a class='externalLink' href='https://licensing.appmobi.com/demo/signup/'>Signup now for a free demo license</a>.  You also must edit the Appmobi Secure Mobile Platform plugin variables to point to your PrivateStack app within the XDK Plugin Management section.",
 	"repoName" : "sample-appmobi-privatestack",
 	"articleUrl" :  "https://github.com/appMobiGithub/sample-appmobi-privatestack/blob/master/README.md",
 	"section" : "samples",

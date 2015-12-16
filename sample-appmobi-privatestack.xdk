@@ -47,7 +47,7 @@
                 "version": "",
                 "originType": "repo",
                 "origin": "https://github.com/appMobiGithub/cordova-plugin-appmobi.git",
-                "gitref": "v1.0.1",
+                "gitref": "v1.0.2",
                 "subdir": ".",
                 "paramvals": {
                     "APP_NAME": "_appName_",

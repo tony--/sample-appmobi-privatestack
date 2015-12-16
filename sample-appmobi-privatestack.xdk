@@ -44,7 +44,7 @@
             {
                 "id": "cordova-plugin-appmobi",
                 "name": "Appmobi Secure Mobile Platform",
-                "version": "",
+                "version": "1.0.2",
                 "originType": "repo",
                 "origin": "https://github.com/appMobiGithub/cordova-plugin-appmobi.git",
                 "gitref": "v1.0.2",
